@@ -1,0 +1,17 @@
+---
+- !policy
+  id: demo-app
+  annotations:
+    description: Demo application built with Spring
+  body:
+    - !variable api-key
+
+    - !layer
+
+    - !host-factory
+      layers: [ !layer ]
+
+    - !permit
+      role: !layer
+      privilege: [ read, execute ]
+      resource: !variable api-key
